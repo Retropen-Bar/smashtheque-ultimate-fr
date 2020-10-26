@@ -1,0 +1,5 @@
+# Temp files
+.DS_Store
+
+# MySQL data, uploads, etc.
+/data
