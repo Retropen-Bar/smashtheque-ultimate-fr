@@ -1,19 +1,15 @@
 <?php
 
-$lib_includes = [
-  // theme
-  'lib/theme.php',
-  'lib/assets.php',
+// register custom fields
+$block_includes = [
+  // global options
+  'lib/fields/global.php',
 
-  // models
-  'lib/types.php',
-  'lib/fields.php',
-
-  // blocks
-  'lib/blocks.php'
+  // custom post types
+  'lib/fields/news_piece.php',
 ];
 
-foreach ($lib_includes as $file) {
+foreach ($block_includes as $file) {
   if (!$filepath = locate_template($file)) {
     trigger_error(sprintf('Error locating %s for inclusion', $file), E_USER_ERROR);
   }
