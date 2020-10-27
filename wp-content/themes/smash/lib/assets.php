@@ -29,7 +29,27 @@ function custom_styles() {
     'smash',
     get_stylesheet_directory_uri() . '/css/style.css'
   );
+  wp_register_style(
+    'fullcalendar',
+    get_stylesheet_directory_uri() . '/vendor/fullcalendar-5.3.2/main.css'
+  );
 
   wp_enqueue_style( 'twentytwenty' );
   wp_enqueue_style( 'smash' );
+  wp_enqueue_style( 'fullcalendar' );
+}
+
+/**
+ * Register and enqueue other scripts
+ */
+
+add_action('wp_enqueue_scripts', 'custom_scripts');
+function custom_scripts() {
+  wp_enqueue_script(
+    'fullcalendar',
+    get_stylesheet_directory_uri() . '/vendor/fullcalendar-5.3.2/main.js',
+    array(),
+    null,
+    true
+  );
 }

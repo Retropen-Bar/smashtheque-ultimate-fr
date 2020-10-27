@@ -6,7 +6,8 @@ $block_includes = [
   'lib/fields/global.php',
 
   // custom post types
-  'lib/fields/news_piece.php',
+  // 'lib/fields/news_piece.php',
+  'lib/fields/tournament.php',
 ];
 
 foreach ($block_includes as $file) {
