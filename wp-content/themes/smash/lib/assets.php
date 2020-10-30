@@ -52,4 +52,18 @@ function custom_scripts() {
     null,
     true
   );
+  wp_enqueue_script(
+    'popper',
+    get_stylesheet_directory_uri() . '/vendor/popper-2.5.4/popper.min.js',
+    array(),
+    null,
+    true
+  );
+  wp_enqueue_script(
+    'tippy',
+    get_stylesheet_directory_uri() . '/vendor/tippy-6.2.7/tippy-bundle.umd.min.js',
+    array('popper'),
+    null,
+    true
+  );
 }

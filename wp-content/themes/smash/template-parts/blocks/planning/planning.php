@@ -24,6 +24,21 @@ if( !empty($block['align']) ) {
   $className .= ' align' . $block['align'];
 }
 
+$events = array_map(
+  function($tournament) {
+    return array(
+      'title' => $tournament->post_title,
+      'start' => get_field('datetime', $tournament->ID),
+      'description' => $tournament->post_title,
+      'url' => get_the_permalink($tournament->ID)
+    );
+  },
+  get_posts(array(
+    'posts_per_page' => -1,
+    'post_type' => 'tournament'
+  ))
+);
+
 ?>
 <div id="<?= esc_attr($id); ?>" class="<?= esc_attr($className); ?>"></div>
 
@@ -31,7 +46,13 @@ if( !empty($block['align']) ) {
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById("<?= esc_attr($id); ?>");
     var calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: 'dayGridMonth'
+      initialView: 'dayGridMonth',
+      events: JSON.parse('<?= json_encode($events) ?>'),
+      eventDidMount: function(arg) {
+        tippy(arg.el, {
+          content: arg.event.extendedProps.description
+        });
+      }
     });
     calendar.render();
   });
