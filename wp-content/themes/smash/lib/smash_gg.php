@@ -2,8 +2,8 @@
 class SmashGG {
   const BASE_URL = "https://api.smash.gg/gql/alpha";
 
-  static public function getTournamentById($id) {
-    $query = 'query($id: ID) {
+  const GET_TOURNAMENT_QUERY = '
+    query($id: ID) {
       tournament(id: $id){
         id
         slug
@@ -14,11 +14,14 @@ class SmashGG {
         }
       }
     }';
-    $variables = array(
-      "id" => $id
-    );
 
-    return self::request($query, $variables)['tournament'];
+  static public function getTournamentById($id) {
+    return self::request(
+      self::GET_TOURNAMENT_QUERY,
+      array(
+        "id" => $id
+      )
+    )['tournament'];
   }
 
   static private function request($query, $variables) {
