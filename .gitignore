@@ -3,3 +3,6 @@
 
 # MySQL data, uploads, etc.
 /data
+
+# Docker
+/docker-compose.override.yml

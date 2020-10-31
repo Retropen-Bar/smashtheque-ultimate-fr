@@ -7,6 +7,12 @@ if(function_exists('acf_add_local_field_group')) {
     'title' => 'Tournoi',
     'fields' => array (
       array (
+        'key' => 'field_smash_tournament_smashgg_id',
+        'label' => 'ID smash.gg',
+        'name' => 'smashgg_id',
+        'type' => 'text',
+      ),
+      array (
         'key' => 'field_smash_tournament_smashgg',
         'label' => 'Lien smash.gg',
         'name' => 'smashgg',
