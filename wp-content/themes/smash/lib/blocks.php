@@ -18,6 +18,7 @@ add_filter( 'block_categories', 'smash_block_categories', 10, 2 );
 $block_includes = [
   // 'lib/blocks/news_pieces.php',
   'lib/blocks/planning.php',
+  'lib/blocks/teams.php',
 ];
 
 foreach ($block_includes as $file) {

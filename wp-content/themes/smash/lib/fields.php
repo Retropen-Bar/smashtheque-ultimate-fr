@@ -7,6 +7,7 @@ $block_includes = [
 
   // custom post types
   // 'lib/fields/news_piece.php',
+  'lib/fields/team.php',
   'lib/fields/tournament.php',
 ];
 
