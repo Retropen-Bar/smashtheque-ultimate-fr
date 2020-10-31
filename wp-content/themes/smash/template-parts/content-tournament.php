@@ -19,7 +19,7 @@
       if($smashgg_id) {
         ?>
         <h3>smash.gg data</h3>
-        <pre><?= json_encode(get_smash_gg_tournament_by_id($smashgg_id), JSON_PRETTY_PRINT) ?></pre>
+        <pre><?= json_encode(SmashGG::getTournamentById($smashgg_id), JSON_PRETTY_PRINT) ?></pre>
         <?php
       }
       ?>
