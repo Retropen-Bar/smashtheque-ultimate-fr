@@ -2,6 +2,10 @@
 
 // register custom post types
 $block_includes = [
+  // base
+  'lib/types/smash.php',
+
+  // types
   // 'lib/types/news_piece.php',
   'lib/types/team.php',
   'lib/types/tournament.php',

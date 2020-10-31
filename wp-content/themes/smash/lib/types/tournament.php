@@ -24,7 +24,7 @@ $args = array(
   'public'             => true,
   'publicly_queryable' => true,
   'show_ui'            => true,
-  'show_in_menu'       => true,
+  'show_in_menu'       => 'smash',
   'query_var'          => true,
   'rewrite'            => array( 'slug' => 'tournament' ),
   'capability_type'    => 'post',
