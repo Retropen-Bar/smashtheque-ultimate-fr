@@ -26,5 +26,6 @@ services:
     volumes:
       - ./data/wordpress/.htaccess:/var/www/html/.htaccess
       - ./data/wordpress/wp-content:/var/www/html/wp-content
+      - ./data/wordpress/uploads:/var/www/html/wp-content/uploads
       - ./wp-content/themes/smash:/var/www/html/wp-content/themes/smash
       - ./wordpress/php.ini:/usr/local/etc/php/conf.d/uploads.ini:ro

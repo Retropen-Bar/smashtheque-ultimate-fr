@@ -8,3 +8,7 @@
   white-space: nowrap;
   border: 0;
 }
+
+.nav.sub-menu {
+  padding-left: 1rem;
+}

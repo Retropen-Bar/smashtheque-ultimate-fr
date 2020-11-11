@@ -23,3 +23,24 @@ foreach ($lib_includes as $file) {
   require_once $filepath;
 }
 unset($file, $filepath);
+
+
+
+
+/**
+ * Register widget area.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
+function smash_widgets_init() {
+  register_sidebar( array(
+      'name'          => esc_html__( 'Sidebar data', 'smash' ),
+      'id'            => 'sidebar-data',
+      'description'   => esc_html__( 'Add widgets here.', 'smash' ),
+      'before_widget' => '<section id="%1$s" class="widget %2$s">',
+      'after_widget'  => '</section>',
+      'before_title'  => '<h3 class="widget-title">',
+      'after_title'   => '</h3>',
+  ) );
+}
+add_action( 'widgets_init', 'smash_widgets_init' );
