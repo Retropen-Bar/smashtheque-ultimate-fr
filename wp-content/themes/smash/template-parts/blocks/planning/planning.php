@@ -46,6 +46,7 @@ $events = array_map(
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById("<?= esc_attr($id); ?>");
     var calendar = new FullCalendar.Calendar(calendarEl, {
+      themeSystem: 'bootstrap',
       initialView: 'dayGridMonth',
       events: JSON.parse('<?= json_encode($events) ?>'),
       eventDidMount: function(arg) {

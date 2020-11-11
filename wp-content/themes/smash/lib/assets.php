@@ -22,7 +22,7 @@ add_action( 'admin_enqueue_scripts', 'smash_enqueue_custom_admin_style' );
 add_action( 'wp_enqueue_scripts', 'custom_styles' );
 function custom_styles() {
   wp_register_style(
-    'twentytwenty',
+    'parent-style',
     get_template_directory_uri() . '/style.css'
   );
   wp_register_style(
@@ -34,7 +34,7 @@ function custom_styles() {
     get_stylesheet_directory_uri() . '/vendor/fullcalendar-5.3.2/main.css'
   );
 
-  wp_enqueue_style( 'twentytwenty' );
+  wp_enqueue_style( 'parent-style' );
   wp_enqueue_style( 'smash' );
   wp_enqueue_style( 'fullcalendar' );
 }
