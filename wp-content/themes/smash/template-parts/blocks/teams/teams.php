@@ -32,17 +32,37 @@ $teams = get_posts(array(
 
 ?>
 <div id="<?= esc_attr($id); ?>" class="<?= esc_attr($className); ?>">
-  <?php
-  foreach ($teams as $team) {
-    $item_id = 'smash-team-' . $team->ID;
-    $title = $team->post_title;
-    $logo = get_field('logo', $team->ID);
-    ?>
-    <div id="<?= esc_attr($id); ?>" class="smash-team">
-      <?= $title ?>
-      <?= wp_get_attachment_image($logo, 'full'); ?>
-    </div>
-    <?php
-  }
-  ?>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nom court</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Logo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+      foreach ($teams as $team) {
+        $classes = ['smash-team-'];
+        $item_id = 'smash-team-' . $team->ID;
+        $name = $team->post_title;
+        $short_name = get_field('logo', $team);
+        $logo = get_field('logo', $team->ID);
+        ?>
+        <tr
+          scope="row"
+          class="<?= implode(' ', $classes) ?>""
+          id="<?= esc_attr($item_id) ?>"
+        >
+          <th scope="row"><?= $short_name ?></th>
+          <td><?= $name ?></td>
+          <td><?= wp_get_attachment_image($logo, 'full'); ?></td>
+        </tr>
+        <?php
+      }
+      ?>
+    </tbody>
+  </table>
+
 </div>

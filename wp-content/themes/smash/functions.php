@@ -13,7 +13,8 @@ $lib_includes = [
   'lib/blocks.php',
 
   // APIs
-  'lib/smash_gg.php'
+  'lib/smash_gg.php',
+  'lib/smashtheque.php',
 ];
 
 foreach ($lib_includes as $file) {

@@ -1,0 +1,103 @@
+.cards-list {
+  text-align: center;
+  margin-bottom: 20px;
+
+  .card {
+    display: inline-flex;
+    margin: 10px 0;
+    max-width: 100%;
+    text-align: left;
+    overflow: hidden;
+    border: 0;
+
+    &.character {
+      margin: 10px;
+      width: 200px;
+      text-align: center;
+      position: relative;
+
+      a {
+        display: block;
+        min-height: 152px;
+
+        .name {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          padding-bottom: 5px;
+          padding-top: 5px;
+          backdrop-filter: blur(5px);
+          -webkit-backdrop-filter: blur(5px);
+          background-color: rgba(255, 255, 255, 0.3);
+          color: #212529;
+        }
+      }
+
+      img.emoji {
+        width: 128px !important;
+        height: auto !important;
+      }
+
+      &:hover {
+        top: -5px;
+      }
+    }
+
+    &.location {
+      width: 400px;
+    }
+
+    &.player {
+      width: 600px;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      background-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+
+      a {
+        &, &:hover {
+          text-decoration: none;
+          color: #212529;
+        }
+      }
+
+      .player-team, .player-location {
+        float: right;
+        margin-left: 10px;
+      }
+
+      .player-team {
+        margin-top: 16px;
+
+        .avatar {
+          vertical-align: -9px;
+        }
+      }
+
+      .avatar {
+        margin-right: 10px;
+      }
+    }
+
+    &.team {
+      width: 400px;
+
+      .avatar {
+        margin-right: 10px;
+      }
+
+      .team-players-count {
+        float: right;
+        margin-left: 10px;
+        margin-top: 18px;
+      }
+    }
+  }
+
+  &.characters {
+    .card-container {
+      display: inline-block;
+    }
+  }
+}

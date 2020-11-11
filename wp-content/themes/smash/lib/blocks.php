@@ -17,6 +17,7 @@ add_filter( 'block_categories', 'smash_block_categories', 10, 2 );
 // register custom blocks
 $block_includes = [
   // 'lib/blocks/news_pieces.php',
+  'lib/blocks/characters.php',
   'lib/blocks/planning.php',
   'lib/blocks/teams.php',
 ];
