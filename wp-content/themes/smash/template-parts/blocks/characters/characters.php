@@ -25,7 +25,7 @@ if( !empty($block['align']) ) {
 }
 
 // Load values and assign defaults.
-$characters = Smashtheque::get_characters();
+$characters = Character::fetch_all();
 ?>
 <div id="<?= esc_attr($id); ?>" class="<?= esc_attr($className); ?>">
 

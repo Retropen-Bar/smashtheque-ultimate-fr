@@ -6,7 +6,9 @@ $block_includes = [
   'lib/types/smash.php',
 
   // types
-  // 'lib/types/news_piece.php',
+  'lib/types/model.php',
+
+  'lib/types/character.php',
   'lib/types/team.php',
   'lib/types/tournament.php',
 ];

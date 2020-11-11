@@ -1,61 +1,17 @@
 <?php
-class SmashthequeRecord {
-
-  public function __construct($value = array()) {
-    if(!empty($value))
-        $this->hydrate($value);
-  }
-
-  public function hydrate($data) {
-    foreach ($data as $attribute => $value) {
-      $this->$attribute = $value;
-    }
-  }
-
-}
-
-class SmashthequeCharacter extends SmashthequeRecord {
-
-  public $id;
-  public $icon;
-  public $name;
-  public $emoji;
-  public $background_color;
-  public $background_image;
-  public $background_size;
-
-  public function emoji_image_url() {
-    return "https://cdn.discordapp.com/emojis/" . $this->emoji . ".png";
-  }
-
-  public function emoji_image_tag() {
-    if(empty($this->emoji)) {
-      return null;
-    }
-    return "<img src=\"" . $this->emoji_image_url() . "\" class=\"emoji\"/>";
-  }
-
-  public function background_image_data_url() {
-    if(empty($this->background_image)) {
-      return null;
-    }
-    return "data:image/svg+xml;base64," . base64_encode($this->background_image);
-  }
-
-}
-
 class Smashtheque {
 
   const BASE_URL = "https://www.smashtheque.fr/api/v1";
 
   static public function get_characters() {
-    return array_map(
-      function($data){
-        return new SmashthequeCharacter($data);
-      },
-      self::get_request('/characters')
-    );
+    return self::get_request('/characters');
   }
+
+  static public function get_teams() {
+    return self::get_request('/teams?per=1000');
+  }
+
+  // PRIVATE
 
   static private function get_request($path) {
     $curl = curl_init();

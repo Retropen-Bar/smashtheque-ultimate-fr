@@ -25,10 +25,7 @@ if( !empty($block['align']) ) {
 }
 
 // Load values and assign defaults.
-$teams = get_posts(array(
-  'posts_per_page' => -1,
-  'post_type' => 'team'
-));
+$teams = Team::fetch_all();
 
 ?>
 <div id="<?= esc_attr($id); ?>" class="<?= esc_attr($className); ?>">
@@ -45,19 +42,16 @@ $teams = get_posts(array(
       <?php
       foreach ($teams as $team) {
         $classes = ['smash-team-'];
-        $item_id = 'smash-team-' . $team->ID;
-        $name = $team->post_title;
-        $short_name = get_field('logo', $team);
-        $logo = get_field('logo', $team->ID);
+        $id = 'smash-team-' . $team->ID;
         ?>
         <tr
           scope="row"
           class="<?= implode(' ', $classes) ?>""
-          id="<?= esc_attr($item_id) ?>"
+          id="<?= esc_attr($id) ?>"
         >
-          <th scope="row"><?= $short_name ?></th>
-          <td><?= $name ?></td>
-          <td><?= wp_get_attachment_image($logo, 'full'); ?></td>
+          <th scope="row"><?= $team->short_name ?></th>
+          <td><?= $team->name ?></td>
+          <td><?= $team->logo_image_tag() ?></td>
         </tr>
         <?php
       }
